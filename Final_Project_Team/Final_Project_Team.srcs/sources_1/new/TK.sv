@@ -122,7 +122,7 @@ module TK(
                 TK_P1L = 1'b0;
                 TK_P2L = 1'b0;
                 TK_CLR = 1'b0;
-                if (TK_S1 == 1000) begin
+                if (TK_S1 == 10) begin
                     NS = WIN;
                 end
                 else begin
