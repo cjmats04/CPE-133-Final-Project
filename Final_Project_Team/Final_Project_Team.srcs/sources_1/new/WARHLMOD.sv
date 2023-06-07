@@ -27,8 +27,8 @@ input [3:0] B,
 input Enter,
 output [7:0] SSEG1,
 output [7:0] SSEG2,
-ouput [3:0] AN1,
-ouput [3:0] AN2,
+output [3:0] AN1,
+output [3:0] AN2,
 output win_LEDP1,
 output win_LEDP2
 
