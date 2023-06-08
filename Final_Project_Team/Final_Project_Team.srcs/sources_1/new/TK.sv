@@ -33,9 +33,7 @@ module TK(
     output logic TK_CLR
     );
     
-    logic FLAG;
-    
-    typedef enum {RST, P1_EN, P2_EN, P1_WAIT, P2_WAIT, P1_CHK, P2_CHK, WIN} STATES;
+    typedef enum {RST, P1_EN, P2_EN, P1_WAIT, P2_WAIT, P1_CHK, P2_CHK, P1_BF, P2_BF, WIN} STATES;
     STATES PS, NS;
     
     always_ff @(posedge clk, posedge TK_RST) begin
@@ -45,10 +43,6 @@ module TK(
         else begin
             PS <= NS;
         end
-    end
-    
-    always_ff @(posedge TK_EN) begin
-        FLAG = 1'b1; //Flag to indicate a button press
     end
     
     always_comb begin
@@ -63,12 +57,22 @@ module TK(
                 TK_P1L = 1'b0;
                 TK_P2L = 1'b0;
                 TK_CLR = 1'b0;
-                if (FLAG) begin
-                    NS = P1_EN;
-                    FLAG = 1'b0;
+                if (TK_EN) begin
+                    NS = P1_BF;
                 end
                 else begin
                     NS = P1_WAIT;
+                end   
+            end
+            P1_BF: begin //wait until P1 releases the enter button
+                TK_P1L = 1'b0;
+                TK_P2L = 1'b0;
+                TK_CLR = 1'b0;
+                if (~TK_EN) begin
+                    NS = P1_EN;
+                end
+                else begin
+                    NS = P1_BF;
                 end   
             end
             P1_EN: begin //check if P1 scores a point after hitting enter
@@ -98,12 +102,22 @@ module TK(
                 TK_P1L = 1'b0;
                 TK_P2L = 1'b0;
                 TK_CLR = 1'b0;
-                if (FLAG) begin
-                    NS = P2_EN;
-                    FLAG = 1'b0;
+                if (TK_EN) begin
+                    NS = P2_BF;
                 end
                 else begin
                     NS = P2_WAIT;
+                end   
+            end
+            P2_WAIT: begin //wait until P2 releases the enter button
+                TK_P1L = 1'b0;
+                TK_P2L = 1'b0;
+                TK_CLR = 1'b0;
+                if (~TK_EN) begin
+                    NS = P2_EN;
+                end
+                else begin
+                    NS = P2_BF;
                 end   
             end
             P2_EN: begin //check if P1 scores a point after hitting enter
