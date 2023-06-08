@@ -28,7 +28,7 @@ module FPT(
     input FPT_RST,
     output [7:0] FPT_SSEG,
     output [3:0] FPT_An,
-    output [1:0] FTP_WLED
+    output [1:0] FPT_WLED
     );
     
     logic t1, t2, t3;
@@ -38,5 +38,5 @@ module FPT(
     Accumulator P1_Score (.clk(clk), .LD(t1), .CLR(t3), .D(4'b0001), .Q(t4));
     Accumulator P2_Score (.clk(clk), .LD(t2), .CLR(t3), .D(4'b0001), .Q(t5));
     univ_sseg sseg (.clk(clk), .cnt1({10'b0000000000, t4}), .cnt2({2'b00, t5}), .mod_sel(2'b01), .valid(1'b1), .ssegs(FPT_SSEG), .disp_en(FPT_An));
-    Winner win1 (.P1TTLSCR(t4), .P2TTLSCR(t5), .WinnerLEDP1(FTP_WLED[0]), .WinnerLEDP2(FTP_WLED[1]));
+    Winner win1 (.P1TTLSCR(t4), .P2TTLSCR(t5), .WinnerLEDP1(FPT_WLED[0]), .WinnerLEDP2(FPT_WLED[1]));
 endmodule

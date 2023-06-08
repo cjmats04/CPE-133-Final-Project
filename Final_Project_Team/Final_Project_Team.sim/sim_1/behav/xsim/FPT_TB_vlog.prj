@@ -1,0 +1,16 @@
+# compile verilog/system verilog design source files
+verilog xil_defaultlib  \
+"../../../../Final_Project_Team.srcs/sources_1/new/univ_sseg_1_01-1.v" \
+
+sv xil_defaultlib  \
+"../../../../Final_Project_Team.srcs/sources_1/new/Accumulator.sv" \
+"../../../../Final_Project_Team.srcs/sources_1/new/FPT.sv" \
+"../../../../Final_Project_Team.srcs/sources_1/new/TK.sv" \
+"../../../../Final_Project_Team.srcs/sources_1/new/Winner.sv" \
+"../../FPT_TB.sv" \
+
+# compile glbl module
+verilog xil_defaultlib "glbl.v"
+
+# Do not sort compile order
+nosort

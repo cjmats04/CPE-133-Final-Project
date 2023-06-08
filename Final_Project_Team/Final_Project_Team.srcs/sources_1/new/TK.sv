@@ -109,7 +109,7 @@ module TK(
                     NS = P2_WAIT;
                 end   
             end
-            P2_WAIT: begin //wait until P2 releases the enter button
+            P2_BF: begin //wait until P2 releases the enter button
                 TK_P1L = 1'b0;
                 TK_P2L = 1'b0;
                 TK_CLR = 1'b0;
