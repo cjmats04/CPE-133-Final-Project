@@ -26,8 +26,8 @@ module TK(
     input [3:0] TK_B,
     input TK_EN,
     input TK_RST,
-    input TK_S1,
-    input TK_S2,
+    input [3:0] TK_S1,
+    input [3:0] TK_S2,
     output logic TK_P1L,
     output logic TK_P2L,
     output logic TK_CLR
