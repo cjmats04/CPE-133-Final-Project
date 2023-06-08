@@ -9,8 +9,8 @@
 
 module Accumulator(
     input clk, LD, CLR,
-    input [4:0] D,
-    output logic [4:0] Q
+    input [3:0] D,
+    output logic [3:0] Q
     );
     
     always_ff @ (posedge clk, posedge CLR)
