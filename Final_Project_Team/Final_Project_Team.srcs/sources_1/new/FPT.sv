@@ -37,6 +37,6 @@ module FPT(
     TK Turn_Keeper (.clk(clk), .TK_A(FPT_A), .TK_B(FPT_B), .TK_EN(FPT_EN), .TK_RST(FPT_RST), .TK_P1L(t1), .TK_P2L(t2), .TK_CLR(t3), .TK_S1(t4), .TK_S2(t5));
     Accumulator P1_Score (.clk(clk), .LD(t1), .CLR(t3), .D(4'b0001), .Q(t4));
     Accumulator P2_Score (.clk(clk), .LD(t2), .CLR(t3), .D(4'b0001), .Q(t5));
-    univ_sseg sseg (.clk(clk), .cnt1({10'b0000000000, t4}), .cnt2({2'b00, t5}), .mod_sel(2'b01), .valid(1'b1), .ssegs(FTP_SSEG), .disp_en(FTP_An));
+    univ_sseg sseg (.clk(clk), .cnt1({10'b0000000000, t4}), .cnt2({2'b00, t5}), .mod_sel(2'b01), .valid(1'b1), .ssegs(FPT_SSEG), .disp_en(FPT_An));
     Winner win1 (.P1TTLSCR(t4), .P2TTLSCR(t5), .WinnerLEDP1(FTP_WLED[0]), .WinnerLEDP2(FTP_WLED[1]));
 endmodule
