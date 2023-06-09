@@ -28,6 +28,6 @@ module Winner(
     );
     
     assign WinnerLEDP1 = (~P1TTLSCR[3] & ~P1TTLSCR[2] & P1TTLSCR[1] & P1TTLSCR[0]); //Light P1 Led if P1 has 3 points
-    assign WinnerLEDP2 = (~P2TTLSCR[3] & ~P2TTLSCR[2] & P2TTLSCR[1] & P2TTLSCR[0]); //Light P1 Led if P1 has 3 points
+    assign WinnerLEDP2 = (~P2TTLSCR[3] & ~P2TTLSCR[2] & P2TTLSCR[1] & P2TTLSCR[0]); //Light P2 Led if P1 has 3 points
     
 endmodule
