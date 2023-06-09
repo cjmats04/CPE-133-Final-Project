@@ -1,7 +1,7 @@
 `timescale 1ns / 1ps
 //////////////////////////////////////////////////////////////////////////////////
 // Company: Cal Poly
-// Engineer: Calvin MAtsushita
+// Engineer: Calvin Matsushita
 // 
 // Create Date: 06/07/2023 09:39:09 AM
 // Design Name: Turn Keeper FSM
@@ -91,7 +91,7 @@ module TK(
                 TK_P1L = 1'b0;
                 TK_P2L = 1'b0;
                 TK_CLR = 1'b0;
-                if (TK_S1 == 10) begin
+                if (TK_S1 == 3) begin
                     NS = WIN;
                 end
                 else begin
@@ -136,7 +136,7 @@ module TK(
                 TK_P1L = 1'b0;
                 TK_P2L = 1'b0;
                 TK_CLR = 1'b0;
-                if (TK_S2 == 10) begin
+                if (TK_S2 == 3) begin
                     NS = WIN;
                 end
                 else begin
@@ -150,6 +150,9 @@ module TK(
                 NS = WIN;
             end
             default: begin
+                TK_P1L = 1'b0;
+                TK_P2L = 1'b0;
+                TK_CLR = 1'b0;
                 NS = RST;
             end
         endcase

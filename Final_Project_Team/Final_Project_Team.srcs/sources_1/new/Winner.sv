@@ -27,7 +27,7 @@ module Winner(
     output WinnerLEDP2
     );
     
-    assign WinnerLEDP1 = (P1TTLSCR[3]|~P1TTLSCR[2]|P1TTLSCR[1]|~P1TTLSCR[0]);
-    assign WinnerLEDP2 = (P2TTLSCR[3]|~P2TTLSCR[2]|P2TTLSCR[1]|~P2TTLSCR[0]);
+    assign WinnerLEDP1 = (~P1TTLSCR[3] & ~P1TTLSCR[2] & P1TTLSCR[1] & P1TTLSCR[0]);
+    assign WinnerLEDP2 = (~P2TTLSCR[3] & ~P2TTLSCR[2] & P2TTLSCR[1] & P2TTLSCR[0]);
     
 endmodule
